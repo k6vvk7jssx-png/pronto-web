@@ -3,296 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Which Prompt I Need</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Caricamento...</title>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        neon: '#39ff14', // Il verde fluo richiesto
-                        dark: '#050505', // Nero profondo
-                        card: '#111111', // Nero leggermente più chiaro per le card
-                    },
-                    fontFamily: {
-                        mono: ['"Space Mono"', 'monospace'],
-                    }
-                }
-            }
-        }
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Pronto-Web Vibe Coding",
+      "description": "Sviluppo web AI-Driven a costo fisso zero.",
+      "telephone": "+39 377 317 6007",
+      "priceRange": "$$"
+    }
     </script>
+
     <style>
-        /* Scrollbar personalizzata stile terminale */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #39ff14; border-radius: 4px; }
-        
-        body { font-family: 'Space Mono', monospace; }
-        
-        /* Effetto glow per le card */
-        .prompt-card:hover {
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
-            border-color: #39ff14;
+        /* --- VIBE CODING DESIGN SYSTEM --- */
+        :root {
+            --bg-color: #F8FAFC;
+            --surface: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #475569;
+            --primary: #2563EB;      /* Blu Elettrico Ingegneristico */
+            --primary-dark: #1E40AF;
+            --accent: #8B5CF6;       /* Viola AI/Tech per il concetto Vibe Coding */
+            --success: #10B981;      /* Verde per il ROI/Risparmio */
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
-        /* Stile per le variabili [TESTO] */
-        .variable-highlight {
-            background-color: rgba(57, 255, 20, 0.2);
-            color: #39ff14;
-            padding: 0 4px;
-            border-radius: 2px;
-            font-weight: bold;
-            border: 1px solid #39ff14;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        
+        /* Utils */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3 { font-family: var(--font-head); font-weight: 700; letter-spacing: -0.03em; }
+        .text-gradient { background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; color: transparent; }
+        .hidden { display: none; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 12px; font-weight: 600; text-decoration: none; transition: 0.2s; border: none; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background: var(--text-main); color: white; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2); }
+        .btn-primary:hover { transform: translateY(-2px); background: black; }
+        .btn-wa { background: #25D366; color: white; gap: 8px; }
+        
+        /* Header */
+        header { padding: 20px 0; border-bottom: 1px solid #E2E8F0; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.4rem; font-family: var(--font-head); display: flex; align-items: center; gap: 5px; }
+        
+        /* Hero */
+        .hero { padding: 120px 0 80px; text-align: center; }
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 30px; }
+        .badges-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 40px; }
+        .badge { background: #E0F2FE; color: #0369A1; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+        
+        /* Metodo Vibe Coding */
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 10px; }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--surface); padding: 30px; border-radius: 16px; border: 1px solid #E2E8F0; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        
+        /* ROI Box */
+        .roi-box { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: white; padding: 50px; border-radius: 24px; text-align: center; margin: 40px 0; }
+        .roi-box h3 { font-size: 2rem; margin-bottom: 15px; color: #38BDF8; }
+        .roi-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
+        .roi-check { background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; display: flex; align-items: center; gap: 8px; }
+        
+        /* FAQ */
+        .faq-item { background: var(--surface); border: 1px solid #E2E8F0; padding: 20px; border-radius: 12px; margin-bottom: 15px; }
+        .faq-q { font-weight: 700; margin-bottom: 8px; color: var(--text-main); display: flex; justify-content: space-between;}
+        .faq-a { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Form */
+        .form-container { background: var(--surface); padding: 40px; border-radius: 20px; border: 1px solid #E2E8F0; box-shadow: 0 20px 40px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; }
+        input, select, textarea { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #CBD5E1; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        
+        /* Footer */
+        footer { text-align: center; padding: 60px 0 20px; color: var(--text-muted); font-size: 0.9rem; }
+        
+        /* Loading */
+        #loader { position: fixed; inset: 0; background: white; z-index: 999; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 1.5rem; }
+
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero { padding: 100px 0 60px; }
+            .roi-box { padding: 30px; }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-dark text-neon overflow-hidden h-screen flex flex-col">
+<body>
 
-    <header class="h-16 border-b border-neon/30 flex items-center px-6 bg-dark z-20 shrink-0">
-        <h1 class="text-xl font-bold tracking-tighter mr-8 border-r border-neon/30 pr-6">WHICH_PROMPT_I_NEED_</h1>
-        <nav id="alias-container" class="flex space-x-4 overflow-x-auto no-scrollbar"></nav>
-    </header>
+    <div id="loader">Vibe Coding Engine...</div>
 
-    <div class="flex flex-1 overflow-hidden">
-        
-        <aside class="w-64 border-r border-neon/30 p-6 flex flex-col gap-8 bg-dark shrink-0 overflow-y-auto">
-            
-            <div>
-                <label class="text-xs text-neon/70 mb-2 block">> SEARCH_DATABASE</label>
-                <input type="text" id="search-input" placeholder="Cerca parole chiave..." 
-                    class="w-full bg-card border border-neon/50 text-neon p-2 text-sm focus:outline-none focus:border-neon focus:ring-1 focus:ring-neon placeholder-neon/30">
+    <div id="app" class="hidden">
+        <header>
+            <div class="container nav">
+                <div class="logo">⚡ <span id="brand-name"></span></div>
+                <a href="#contatti" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Preventivo</a>
             </div>
+        </header>
 
-            <div>
-                <label class="text-xs text-neon/70 mb-2 block">> DIFFICULTY_LEVEL</label>
-                <div class="flex flex-col gap-2" id="difficulty-filters">
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-white">
-                        <input type="checkbox" value="Facile" class="accent-neon bg-dark border-neon diff-checkbox" checked>
-                        <span>[1] Facile</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-white">
-                        <input type="checkbox" value="Medio" class="accent-neon bg-dark border-neon diff-checkbox" checked>
-                        <span>[2] Medio</span>
-                    </label>
-                    <label class="flex items-center gap-2 cursor-pointer hover:text-white">
-                        <input type="checkbox" value="Difficile" class="accent-neon bg-dark border-neon diff-checkbox" checked>
-                        <span>[3] Difficile</span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="mt-auto text-xs text-neon/40">
-                <p>SYSTEM STATUS: ONLINE</p>
-                <p>V 1.0.0</p>
-            </div>
-        </aside>
-
-        <main class="flex-1 p-8 overflow-y-auto relative" id="main-scroll">
-            <div id="prompts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                </div>
-        </main>
-    </div>
-
-    <div id="prompt-modal" class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
-        <div class="bg-card border border-neon w-full max-w-2xl max-h-[90vh] flex flex-col shadow-[0_0_50px_rgba(57,255,20,0.1)] relative">
-            
-            <div class="flex justify-between items-center p-4 border-b border-neon/30">
-                <h3 id="modal-title" class="text-xl font-bold">TITLE_HERE</h3>
-                <button id="close-modal" class="text-neon hover:text-white hover:rotate-90 transition-transform">
-                    [X] CHIUDI
-                </button>
-            </div>
-
-            <div class="p-6 overflow-y-auto font-mono text-sm leading-relaxed text-gray-300">
-                <p id="modal-desc" class="text-neon/60 mb-4 text-xs uppercase tracking-widest"></p>
+        <section class="hero">
+            <div class="container">
+                <h1 id="hero-title"></h1>
+                <p id="hero-desc"></p>
                 
-                <div class="bg-black border border-neon/30 p-4 rounded relative group">
-                    <p id="modal-text" class="whitespace-pre-wrap"></p> </div>
-            </div>
+                <div style="margin-top: 30px;">
+                    <a href="#contatti" class="btn btn-primary">Voglio un Sito senza Canone</a>
+                </div>
 
-            <div class="p-4 border-t border-neon/30 flex justify-end gap-4 bg-card">
-                <button id="copy-btn" class="bg-neon text-black px-6 py-2 font-bold hover:bg-white hover:scale-105 transition-all flex items-center gap-2">
-                    <span>COPIA_PROMPT</span>
-                </button>
+                <div class="badges-container" id="badges-list">
+                    </div>
             </div>
-        </div>
+        </section>
+
+        <section class="section" style="background: white;">
+            <div class="container">
+                <h2 class="section-title" id="method-title"></h2>
+                <p class="section-subtitle" id="method-subtitle"></p>
+                <div class="grid-3" id="method-grid"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="roi-box">
+                    <h3 id="roi-title"></h3>
+                    <p id="roi-desc" style="color: #E2E8F0; font-size: 1.1rem; max-width: 700px; margin: 0 auto;"></p>
+                    <div class="roi-features" id="roi-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Servizi Smart</h2>
+                <div class="grid-3" id="services-grid" style="margin-top: 40px;"></div>
+            </div>
+        </section>
+
+        <section class="section" style="background: white;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Domande Frequenti</h2>
+                <div id="faq-list" style="margin-top: 40px;"></div>
+            </div>
+        </section>
+
+        <section id="contatti" class="section">
+            <div class="container">
+                <div class="form-container">
+                    <h2 style="text-align: center; margin-bottom: 20px;">Richiedi Preventivo Rapido</h2>
+                    
+                    <form action="https://formspree.io/f/xbdddlee" method="POST">
+                        <label>Nome Completo</label>
+                        <input type="text" name="name" required placeholder="Il tuo nome">
+                        
+                        <label>Email</label>
+                        <input type="email" name="email" required placeholder="tua@email.com">
+                        
+                        <label>Settore</label>
+                        <select name="settore" id="sector-select"></select>
+                        
+                        <label>Progetto</label>
+                        <textarea name="message" rows="3" required placeholder="Descrivi brevemente..."></textarea>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Invia Richiesta</button>
+                    </form>
+
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a id="wa-link" href="#" class="btn btn-wa" style="width: 100%; justify-content: center;">
+                            WhatsApp Rapido
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <h3>Smetti di pagare canoni inutili.</h3>
+                <p style="margin: 10px 0 30px;">Passa all'architettura web moderna.</p>
+                <p>&copy; 2024 <span id="footer-owner"></span> - Pronto-Web</p>
+            </div>
+        </footer>
     </div>
 
     <script>
-        let allPrompts = [];
-        let currentAlias = 'ALL';
-
-        // Mappa per ordinamento difficoltà
-        const difficultyWeight = {
-            'Facile': 1,
-            'Medio': 2,
-            'Difficile': 3
-        };
-
-        // Caricamento dati
-        async function loadPrompts() {
+        async function initVibeCoding() {
             try {
-                const response = await fetch('prompts.json');
-                allPrompts = await response.json();
-                
-                // Ordina per difficoltà di default
-                allPrompts.sort((a, b) => difficultyWeight[a.difficolta] - difficultyWeight[b.difficolta]);
+                const res = await fetch('dati.json');
+                const db = await res.json();
 
-                initApp();
-            } catch (error) {
-                console.error("Errore caricamento JSON:", error);
-                document.getElementById('prompts-grid').innerHTML = `<div class="text-red-500">ERROR: DATABASE NOT FOUND (prompts.json missing)</div>`;
+                // 1. Meta & Brand
+                document.title = `${db.brand.nome} | Zero Costi Fissi`;
+                document.getElementById('brand-name').innerText = db.brand.nome;
+                document.getElementById('footer-owner').innerText = db.brand.owner;
+
+                // 2. Hero
+                const heroHtml = `${db.hero.titolo} <span class="text-gradient">${db.hero.titolo_accento}</span>`;
+                document.getElementById('hero-title').innerHTML = heroHtml;
+                document.getElementById('hero-desc').innerText = db.hero.descrizione;
+                
+                // Badges
+                const badgeContainer = document.getElementById('badges-list');
+                db.hero.badges.forEach(badge => {
+                    badgeContainer.innerHTML += `<span class="badge">${badge}</span>`;
+                });
+
+                // 3. Metodo Vibe Coding
+                document.getElementById('method-title').innerText = db.metodo.titolo;
+                document.getElementById('method-subtitle').innerText = db.metodo.sottotitolo;
+                const methodGrid = document.getElementById('method-grid');
+                db.metodo.punti.forEach(punto => {
+                    methodGrid.innerHTML += `
+                        <div class="card">
+                            <span class="card-icon">${punto.icona}</span>
+                            <h3>${punto.titolo}</h3>
+                            <p style="color:var(--text-muted); margin-top:10px;">${punto.desc}</p>
+                        </div>
+                    `;
+                });
+
+                // 4. ROI Section
+                document.getElementById('roi-title').innerText = db.roi.titolo;
+                document.getElementById('roi-desc').innerText = db.roi.descrizione;
+                const roiList = document.getElementById('roi-list');
+                db.roi.features.forEach(feat => {
+                    roiList.innerHTML += `<div class="roi-check">✅ ${feat}</div>`;
+                });
+
+                // 5. Servizi
+                const srvGrid = document.getElementById('services-grid');
+                db.servizi.forEach(srv => {
+                    srvGrid.innerHTML += `
+                        <div class="card">
+                            <span class="card-icon">${srv.icona}</span>
+                            <h3>${srv.titolo}</h3>
+                            <p style="color:var(--text-muted); margin-top:10px;">${srv.desc}</p>
+                        </div>
+                    `;
+                });
+
+                // 6. FAQ
+                const faqList = document.getElementById('faq-list');
+                db.faq.forEach(q => {
+                    faqList.innerHTML += `
+                        <div class="faq-item">
+                            <div class="faq-q">${q.domanda} <span>▼</span></div>
+                            <div class="faq-a">${q.risposta}</div>
+                        </div>
+                    `;
+                });
+
+                // 7. Form & Footer Links
+                const sectorSelect = document.getElementById('sector-select');
+                db.settori_clienti.forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s; opt.innerText = s;
+                    sectorSelect.appendChild(opt);
+                });
+
+                document.getElementById('wa-link').href = db.contatti.link_whatsapp;
+
+                // Show Site
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('app').classList.remove('hidden');
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('loader').innerText = "Errore System Init";
             }
         }
 
-        function initApp() {
-            renderAliases();
-            renderPrompts();
-            setupEventListeners();
-        }
-
-        // Genera i tab in alto
-        function renderAliases() {
-            const aliases = ['ALL', ...new Set(allPrompts.map(p => p.alias))];
-            const container = document.getElementById('alias-container');
-            
-            container.innerHTML = aliases.map(alias => `
-                <button 
-                    onclick="setAlias('${alias}')"
-                    class="px-4 py-1 border border-neon/30 hover:bg-neon hover:text-black transition-colors ${currentAlias === alias ? 'bg-neon text-black font-bold' : 'text-neon'}"
-                >
-                    ${alias.toUpperCase()}
-                </button>
-            `).join('');
-        }
-
-        window.setAlias = (alias) => {
-            currentAlias = alias;
-            renderAliases(); // Per aggiornare lo stile attivo
-            renderPrompts();
-        };
-
-        // Gestione Variabili [NOME]
-        function formatPromptText(text) {
-            // Regex: trova tutto ciò che è tra quadre [] e lo avvolge in uno span
-            return text.replace(/\[(.*?)\]/g, '<span class="variable-highlight">[$1]</span>');
-        }
-
-        function renderPrompts() {
-            const grid = document.getElementById('prompts-grid');
-            const searchText = document.getElementById('search-input').value.toLowerCase();
-            
-            // Leggi quali checkbox difficoltà sono attive
-            const checkedDifficulties = Array.from(document.querySelectorAll('.diff-checkbox:checked')).map(cb => cb.value);
-
-            // Filtra
-            const filtered = allPrompts.filter(p => {
-                const matchAlias = currentAlias === 'ALL' || p.alias === currentAlias;
-                const matchSearch = p.titolo.toLowerCase().includes(searchText) || p.testo.toLowerCase().includes(searchText) || p.tags.includes(searchText);
-                const matchDiff = checkedDifficulties.includes(p.difficolta);
-                return matchAlias && matchSearch && matchDiff;
-            });
-
-            grid.innerHTML = filtered.map((p, index) => `
-                <div class="prompt-card bg-card border border-neon/30 p-5 flex flex-col justify-between cursor-pointer transition-all h-64 relative group"
-                     onclick="openModal(${p.id || index})"> <div>
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-xs bg-neon/10 text-neon px-2 py-0.5 border border-neon/30">${p.alias}</span>
-                            <span class="text-xs ${p.difficolta === 'Difficile' ? 'text-red-400' : 'text-neon/60'}">Lvl.${difficultyWeight[p.difficolta]}</span>
-                        </div>
-                        <h3 class="text-lg font-bold leading-tight mb-2 group-hover:underline decoration-neon decoration-2">${p.titolo}</h3>
-                        <p class="text-xs text-gray-400 line-clamp-3 font-sans opacity-80">${p.testo.substring(0, 100)}...</p>
-                    </div>
-
-                    <div class="mt-4 flex justify-between items-center text-xs text-neon/50">
-                        <span>#${p.tags.split(',')[0]}</span>
-                        <span class="group-hover:translate-x-1 transition-transform">APRI_TERMINALE -></span>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Logica Filtri
-        function setupEventListeners() {
-            document.getElementById('search-input').addEventListener('input', renderPrompts);
-            document.querySelectorAll('.diff-checkbox').forEach(cb => {
-                cb.addEventListener('change', renderPrompts);
-            });
-        }
-
-        // --- MODAL LOGIC ---
-        
-        let currentPromptTextRaw = ""; // Per la copia pulita
-
-        window.openModal = (index) => {
-            // Se usiamo l'index filtrato attenzione, meglio cercare nell'array originale se hai ID.
-            // Qui semplifico usando l'oggetto filtrato, ma per sicurezza nel rendering reale passo l'oggetto o un ID univoco.
-            // Dato che filtro, l'index del loop non corrisponde all'array originale.
-            // FIX: Cerchiamo l'oggetto nell'array filtrato? No, meglio passare l'oggetto intero o usare ID. 
-            // In questo esempio base, per semplicità, ricalcolo l'oggetto basandomi sul rendering ma il modo migliore è:
-            
-            // 1. Trovare il prompt corretto.
-            // Se nel JSON non hai ID, usiamo il titolo come chiave (o aggiungiamo ID al JSON).
-            // Per ora recuperiamo dal render click.
-            
-            // Trick rapido: quando renderizzo passo l'indice dell'array *filtrato*? No.
-            // Cerchiamo nell'array `allPrompts` quello che corrisponde.
-            
-            // SOLUZIONE MIGLIORE: Aggiungo dinamicamente un ID temporaneo al caricamento se non c'è.
-            const prompt = allPrompts[index] || allPrompts.find(p => p.id == index); 
-            // Nota: nel loadPrompts dovresti fare: allPrompts.forEach((p,i) => p.id = i); 
-            
-            if(!prompt) return;
-
-            document.getElementById('modal-title').innerText = prompt.titolo;
-            document.getElementById('modal-desc').innerText = `ALIAS: ${prompt.alias} | DIFF: ${prompt.difficolta} | TAGS: ${prompt.tags}`;
-            
-            // Inserisci HTML formattato con variabili evidenziate
-            document.getElementById('modal-text').innerHTML = formatPromptText(prompt.testo);
-            
-            currentPromptTextRaw = prompt.testo; // Salvo testo puro per copia
-            
-            const modal = document.getElementById('prompt-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        };
-
-        // Aggiungi ID al load
-        const _originalLoad = loadPrompts;
-        loadPrompts = async () => {
-            await _originalLoad(); 
-            // Sovrascrivo per assegnare ID univoci per il modale
-            allPrompts.forEach((p, i) => p.id = i);
-            renderPrompts(); // Re-render iniziale
-        }
-
-        document.getElementById('close-modal').onclick = () => {
-            const modal = document.getElementById('prompt-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        };
-
-        // Copia negli appunti
-        document.getElementById('copy-btn').onclick = () => {
-            navigator.clipboard.writeText(currentPromptTextRaw).then(() => {
-                const btn = document.getElementById('copy-btn');
-                const originalText = btn.innerHTML;
-                
-                btn.classList.replace('bg-neon', 'bg-white');
-                btn.innerHTML = '<span>COPIATO!</span>';
-                
-                setTimeout(() => {
-                    btn.classList.replace('bg-white', 'bg-neon');
-                    btn.innerHTML = originalText;
-                }, 2000);
-            });
-        };
-
-        // Avvio
-        loadPrompts();
-
+        initVibeCoding();
     </script>
 </body>
 </html>
