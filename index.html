@@ -23,10 +23,10 @@
             --surface: #FFFFFF;
             --text-main: #0F172A;
             --text-muted: #475569;
-            --primary: #2563EB;      /* Blu Elettrico Ingegneristico */
+            --primary: #2563EB;      
             --primary-dark: #1E40AF;
-            --accent: #8B5CF6;       /* Viola AI/Tech per il concetto Vibe Coding */
-            --success: #10B981;      /* Verde per il ROI/Risparmio */
+            --accent: #8B5CF6;       
+            --success: #10B981;      
             --font-head: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -199,7 +199,9 @@
     <script>
         async function initVibeCoding() {
             try {
+                // Fetch JSON database
                 const res = await fetch('dati.json');
+                if (!res.ok) throw new Error("Errore nel caricamento dati");
                 const db = await res.json();
 
                 // 1. Meta & Brand
@@ -214,6 +216,7 @@
                 
                 // Badges
                 const badgeContainer = document.getElementById('badges-list');
+                badgeContainer.innerHTML = ""; // Pulisce
                 db.hero.badges.forEach(badge => {
                     badgeContainer.innerHTML += `<span class="badge">${badge}</span>`;
                 });
@@ -222,6 +225,7 @@
                 document.getElementById('method-title').innerText = db.metodo.titolo;
                 document.getElementById('method-subtitle').innerText = db.metodo.sottotitolo;
                 const methodGrid = document.getElementById('method-grid');
+                methodGrid.innerHTML = ""; // Pulisce
                 db.metodo.punti.forEach(punto => {
                     methodGrid.innerHTML += `
                         <div class="card">
@@ -236,12 +240,14 @@
                 document.getElementById('roi-title').innerText = db.roi.titolo;
                 document.getElementById('roi-desc').innerText = db.roi.descrizione;
                 const roiList = document.getElementById('roi-list');
+                roiList.innerHTML = ""; // Pulisce
                 db.roi.features.forEach(feat => {
                     roiList.innerHTML += `<div class="roi-check">✅ ${feat}</div>`;
                 });
 
                 // 5. Servizi
                 const srvGrid = document.getElementById('services-grid');
+                srvGrid.innerHTML = ""; // Pulisce
                 db.servizi.forEach(srv => {
                     srvGrid.innerHTML += `
                         <div class="card">
@@ -254,6 +260,7 @@
 
                 // 6. FAQ
                 const faqList = document.getElementById('faq-list');
+                faqList.innerHTML = ""; // Pulisce
                 db.faq.forEach(q => {
                     faqList.innerHTML += `
                         <div class="faq-item">
@@ -265,6 +272,7 @@
 
                 // 7. Form & Footer Links
                 const sectorSelect = document.getElementById('sector-select');
+                sectorSelect.innerHTML = ""; // Pulisce
                 db.settori_clienti.forEach(s => {
                     const opt = document.createElement('option');
                     opt.value = s; opt.innerText = s;
@@ -279,7 +287,7 @@
 
             } catch (err) {
                 console.error(err);
-                document.getElementById('loader').innerText = "Errore System Init";
+                document.getElementById('loader').innerText = "Attenzione: Assicurati di aver caricato anche dati.json!";
             }
         }
 
